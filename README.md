@@ -25,8 +25,8 @@ toast.hide()
 ## 方法
 ### show(type, content, closeDelay)
 显示一条toast
-* type: toast图标类型
-* content: toast文字内容
+* type：toast图标类型
+* content：toast文字内容
 * closeDelay：自动关闭toast的时间（0：不自动关闭） 单位：毫秒；默认：1500
 
 ## 为什么不用vue组件的数据响应方式来显示toast，而是用传统的方法调用？
