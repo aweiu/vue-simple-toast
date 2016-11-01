@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+dev/dist
+dev/babel-all.js
+.editorconfig
+icomoon/demo-files
+icomoon/demo.html
+icomoon/Read Me.txt
