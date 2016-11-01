@@ -22,4 +22,4 @@ SimpleToast.prototype.show = function (type, content, closeDelay) {
 SimpleToast.prototype.hide = function () {
   toast.removeRecord(this.index);
 };
-module.exports = SimpleToast;
+module.exports = window._vueSimpleToast || (window._vueSimpleToast = SimpleToast);

@@ -18,4 +18,4 @@ SimpleToast.prototype.show = function (type, content, closeDelay) {
 SimpleToast.prototype.hide = function () {
   toast.removeRecord(this.index)
 }
-export default SimpleToast
+export default window._vueSimpleToast || (window._vueSimpleToast = SimpleToast)
