@@ -19,7 +19,7 @@ toast.hide()
 ```
 ## 支持的toast图标类型
 * loading 正在加载
-* warm 警告
+* warning 警告
 * success 成功
 
 ## 方法

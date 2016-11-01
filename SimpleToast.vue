@@ -395,7 +395,7 @@
 </style>
 <script>
   import './icomoon/style.css'
-  var types = ['loading', 'success', 'warm']
+  var types = ['loading', 'success', 'warning']
   var record = {
     index: [],
     info: [],
