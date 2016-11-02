@@ -447,6 +447,18 @@
       removeRecord (index) {
         record.remove(index)
       }
+    },
+    created () {
+      [
+        'simple-toast-el-wrap',
+        'simple-toast-el',
+        'simple-toast-el-icons',
+        'simple-toast-el-icon',
+        'simple-toast-el-loading-leaf',
+        'simple-toast-el-content'
+      ].forEach(tagName => {
+        document.registerElement(tagName)
+      })
     }
   }
 </script>
