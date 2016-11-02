@@ -391,10 +391,19 @@
     }
   }
 
-
 </style>
 <script>
   import './icomoon/style.css'
+  // 手动注册自定义标签来消灭Unknown custom element错误警告
+  ['simple-toast-el-wrap',
+    'simple-toast-el',
+    'simple-toast-el-icons',
+    'simple-toast-el-icon',
+    'simple-toast-el-loading-leaf',
+    'simple-toast-el-content']
+    .forEach(tagName => {
+      document.registerElement(tagName)
+    })
   var types = ['loading', 'success', 'warning']
   var record = {
     index: [],
@@ -447,18 +456,6 @@
       removeRecord (index) {
         record.remove(index)
       }
-    },
-    created () {
-      [
-        'simple-toast-el-wrap',
-        'simple-toast-el',
-        'simple-toast-el-icons',
-        'simple-toast-el-icon',
-        'simple-toast-el-loading-leaf',
-        'simple-toast-el-content'
-      ].forEach(tagName => {
-        document.registerElement(tagName)
-      })
     }
   }
 </script>
