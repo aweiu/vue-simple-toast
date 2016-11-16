@@ -22,7 +22,7 @@
     </simple-toast-el>
   </simple-toast-el-wrap>
 </template>
-<style>
+<style scoped>
   simple-toast-el-wrap {
     position: fixed;
     z-index: 1;
@@ -45,11 +45,13 @@
     border-radius: 5px;
     color: #FFFFFF;
   }
+
   simple-toast-el-content {
     margin-top: 64%;
     font-size: 14px;
     display: block;
   }
+
   simple-toast-el-icons {
     position: absolute;
     width: 0;
@@ -57,17 +59,20 @@
     left: 50%;
     top: 38%;
   }
+
   simple-toast-el-icons [class^="vue-simple-toast-icon-"] {
     position: absolute;
     font-size: 50px;
     left: -25px;
     top: -20px;
   }
+
   simple-toast-el-loading-leaf {
     position: absolute;
     top: -1px;
     opacity: 0.25;
   }
+
   simple-toast-el-loading-leaf:before {
     content: " ";
     position: absolute;
@@ -79,102 +84,127 @@
     -webkit-transform-origin: left 50% 0px;
     transform-origin: left 50% 0px;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-0 {
     -webkit-animation: opacity-60-25-0-12 1.25s linear infinite;
     animation: opacity-60-25-0-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-0:before {
     -webkit-transform: rotate(30deg) translate(7.92px, 0px);
     transform: rotate(30deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-1 {
     -webkit-animation: opacity-60-25-1-12 1.25s linear infinite;
     animation: opacity-60-25-1-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-1:before {
     -webkit-transform: rotate(60deg) translate(7.92px, 0px);
     transform: rotate(60deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-2 {
     -webkit-animation: opacity-60-25-2-12 1.25s linear infinite;
     animation: opacity-60-25-2-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-2:before {
     -webkit-transform: rotate(90deg) translate(7.92px, 0px);
     transform: rotate(90deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-3 {
     -webkit-animation: opacity-60-25-3-12 1.25s linear infinite;
     animation: opacity-60-25-3-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-3:before {
     -webkit-transform: rotate(120deg) translate(7.92px, 0px);
     transform: rotate(120deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-4 {
     -webkit-animation: opacity-60-25-4-12 1.25s linear infinite;
     animation: opacity-60-25-4-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-4:before {
     -webkit-transform: rotate(150deg) translate(7.92px, 0px);
     transform: rotate(150deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-5 {
     -webkit-animation: opacity-60-25-5-12 1.25s linear infinite;
     animation: opacity-60-25-5-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-5:before {
     -webkit-transform: rotate(180deg) translate(7.92px, 0px);
     transform: rotate(180deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-6 {
     -webkit-animation: opacity-60-25-6-12 1.25s linear infinite;
     animation: opacity-60-25-6-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-6:before {
     -webkit-transform: rotate(210deg) translate(7.92px, 0px);
     transform: rotate(210deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-7 {
     -webkit-animation: opacity-60-25-7-12 1.25s linear infinite;
     animation: opacity-60-25-7-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-7:before {
     -webkit-transform: rotate(240deg) translate(7.92px, 0px);
     transform: rotate(240deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-8 {
     -webkit-animation: opacity-60-25-8-12 1.25s linear infinite;
     animation: opacity-60-25-8-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-8:before {
     -webkit-transform: rotate(270deg) translate(7.92px, 0px);
     transform: rotate(270deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-9 {
     -webkit-animation: opacity-60-25-9-12 1.25s linear infinite;
     animation: opacity-60-25-9-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-9:before {
     -webkit-transform: rotate(300deg) translate(7.92px, 0px);
     transform: rotate(300deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-10 {
     -webkit-animation: opacity-60-25-10-12 1.25s linear infinite;
     animation: opacity-60-25-10-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-10:before {
     -webkit-transform: rotate(330deg) translate(7.92px, 0px);
     transform: rotate(330deg) translate(7.92px, 0px);
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-11 {
     -webkit-animation: opacity-60-25-11-12 1.25s linear infinite;
     animation: opacity-60-25-11-12 1.25s linear infinite;
   }
+
   simple-toast-el-loading-leaf.toast-loading-leaf-11:before {
     -webkit-transform: rotate(360deg) translate(7.92px, 0px);
     transform: rotate(360deg) translate(7.92px, 0px);
   }
+
   @-webkit-keyframes opacity-60-25-0-12 {
     0% {
       opacity: 0.25;
@@ -395,15 +425,12 @@
 <script>
   import './icomoon/style.css'
   // 手动注册自定义标签来消灭Unknown custom element错误警告
-  ['simple-toast-el-wrap',
-    'simple-toast-el',
-    'simple-toast-el-icons',
-    'simple-toast-el-icon',
-    'simple-toast-el-loading-leaf',
-    'simple-toast-el-content']
-    .forEach(tagName => {
+  for (let tagName of ['simple-toast-el-wrap', 'simple-toast-el', 'simple-toast-el-icons', 'simple-toast-el-icon', 'simple-toast-el-loading-leaf', 'simple-toast-el-content']) {
+    try {
       document.registerElement(tagName)
-    })
+    } catch (registerErr) {
+    }
+  }
   var types = ['loading', 'success', 'warning']
   var record = {
     index: [],

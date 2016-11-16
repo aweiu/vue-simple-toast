@@ -1,6 +1,6 @@
 {
   "name": "vue-simple-toast",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "vue仿微信弹窗小组件",
   "keywords": [
     "toast",
