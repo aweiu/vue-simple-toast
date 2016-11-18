@@ -17,6 +17,7 @@ toast.show('loading', '正在加载数据')
 // 关闭加载画面
 toast.hide()
 ```
+![image](https://github.com/aweiu/vue-simple-toast/raw/master/example.png)
 ## 支持的toast图标类型
 * loading 正在加载
 * warning 警告
