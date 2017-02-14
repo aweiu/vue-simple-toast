@@ -1,8 +1,8 @@
 <template>
-  <simple-toast-el-wrap v-show="isShow">
+  <simple-toast-el-wrap v-show="indices.length > 0" :style="{zIndex: option.zIndex || 100}">
     <simple-toast-el>
       <simple-toast-el-icons>
-        <simple-toast-el-icon v-if="type === 'loading'">
+        <simple-toast-el-icon v-show="type === 'loading'">
           <simple-toast-el-loading-leaf class="toast-loading-leaf-0"></simple-toast-el-loading-leaf>
           <simple-toast-el-loading-leaf class="toast-loading-leaf-1"></simple-toast-el-loading-leaf>
           <simple-toast-el-loading-leaf class="toast-loading-leaf-2"></simple-toast-el-loading-leaf>
@@ -16,16 +16,16 @@
           <simple-toast-el-loading-leaf class="toast-loading-leaf-10"></simple-toast-el-loading-leaf>
           <simple-toast-el-loading-leaf class="toast-loading-leaf-11"></simple-toast-el-loading-leaf>
         </simple-toast-el-icon>
-        <simple-toast-el-icon v-if="type !== 'loading'" class="vue-simple-toast-icon-{{type}}"></simple-toast-el-icon>
+        <simple-toast-el-icon class="vue-simple-toast-icon-{{type}}"
+                              v-show="type !== 'loading' && types.indexOf(type) !== -1"></simple-toast-el-icon>
       </simple-toast-el-icons>
-      <simple-toast-el-content>{{content}}</simple-toast-el-content>
+      <simple-toast-el-content>{{option.content}}</simple-toast-el-content>
     </simple-toast-el>
   </simple-toast-el-wrap>
 </template>
 <style scoped>
   simple-toast-el-wrap {
     position: fixed;
-    z-index: 1;
     width: 100%;
     height: 100%;
     top: 0;
@@ -33,8 +33,7 @@
   }
 
   simple-toast-el {
-    position: fixed;
-    z-index: 3;
+    position: absolute;
     width: 7.6em;
     min-height: 7.6em;
     top: 180px;
@@ -55,7 +54,6 @@
   simple-toast-el-icons {
     position: absolute;
     width: 0;
-    z-index: 2000000000;
     left: 50%;
     top: 38%;
   }
@@ -421,8 +419,12 @@
     }
   }
 
+
+
+
 </style>
 <script>
+  import vue from 'vue'
   import './icomoon/style.css'
   // 手动注册自定义标签来消灭Unknown custom element错误警告
   for (let tagName of ['simple-toast-el-wrap', 'simple-toast-el', 'simple-toast-el-icons', 'simple-toast-el-icon', 'simple-toast-el-loading-leaf', 'simple-toast-el-content']) {
@@ -431,57 +433,39 @@
     } catch (registerErr) {
     }
   }
-  var types = ['loading', 'success', 'warning']
-  var record = {
-    index: [],
-    info: [],
-    add (type, content, index) {
-      this.index.push(index)
-      this.info.push({
-        type: type,
-        content: content
-      })
-    },
-    remove (index) {
-      var aIndex = this.index.indexOf(index)
-      if (aIndex !== -1) {
-        this.index.splice(aIndex, 1)
-        this.info.splice(aIndex, 1)
-      }
-    }
-  }
   export default{
     data () {
       return {
-        toastInfo: record.info
+        types: ['loading', 'success', 'warning'],
+        indices: [],
+        options: []
       }
     },
     computed: {
+      option () {
+        return this.options[this.options.length - 1] || {}
+      },
       type () {
-        var info = this.toastInfo[this.toastInfo.length - 1]
-        if (info) return info.type
-      },
-      content () {
-        var info = this.toastInfo[this.toastInfo.length - 1]
-        if (info) return info.content
-      },
-      isShow () {
-        return this.toastInfo.length > 0
+        return this.option.type || ''
       }
     },
     methods: {
-      addRecord (type, content, closeDelay, index) {
-        if (types.indexOf(type) === -1) return console.warn(`can't support this type:${type}`)
-        record.add(type, content, index)
-        var self = this
+      addRecord (index, closeDelay, option) {
+        if (this.types.indexOf(option.type) === -1) return console.warn(`can't support this type:${option.type}`)
+        this.indices.push(index)
+        this.options.push(option)
         if (closeDelay !== 0) {
           setTimeout(() => {
-            self.removeRecord(index)
+            this.removeRecord(index)
           }, closeDelay || 1500)
         }
       },
       removeRecord (index) {
-        record.remove(index)
+        var aIndex = this.indices.indexOf(index)
+        if (aIndex !== -1) {
+          this.indices.splice(aIndex, 1)
+          this.options.splice(aIndex, 1)
+        }
       }
     }
   }

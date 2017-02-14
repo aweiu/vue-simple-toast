@@ -23,6 +23,12 @@ toast.hide()
 * warning 警告
 * success 成功
 
+## 实例化
+```
+new Toast(zIndex)
+```
+zIndex: 对应Toast实例节点的style.zIndex。默认：100
+
 ## 方法
 ### show(type, content, closeDelay)
 显示一条toast
